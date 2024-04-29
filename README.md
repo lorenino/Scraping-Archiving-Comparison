@@ -1,34 +1,49 @@
-# Projet d'archivage Web
-
-Ce projet est un script Python conçu pour archiver le contenu HTML de pages Web spécifiées dans un fichier Excel, comparer les versions archivées pour détecter les changements et envoyer des notifications par e-mail en cas de différences détectées.
-## Contenu du Projet 
-- **main.py** : Ce fichier contient le script principal qui orchestre le processus d'archivage, de comparaison et d'envoi d'e-mails. 
-- **email_config.py** : Ce fichier contient la configuration pour l'envoi d'e-mails, y compris les détails du serveur SMTP et les informations d'identification. 
-- **archivage.py** : Un fichier supplémentaire où les fonctions spécifiques à l'archivage peuvent être définies et appelées depuis le script principal, si nécessaire. 
-- **crawl.log** : Ce fichier contient les logs générés lors de l'exécution du script.
+## Project Structure 
+- **main.py** : This file contains the main script orchestrating the archiving, comparison, and email sending process. 
+- **archiving.py** : An additional file where specific archiving functions can be defined and called from the main script, if necessary. 
+- **crawl.log** : This file contains logs generated during the script execution. 
+- **requirements.txt** : A file listing all Python dependencies required to run the script.
 ## Configuration
 
-Avant d'utiliser ce script, assurez-vous d'installer toutes les dépendances Python répertoriées dans le fichier `requirements.txt`.
+Before using this script, make sure to install all Python dependencies listed in the `requirements.txt` file.
 
-Pour configurer l'envoi d'e-mails, ouvrez le fichier `email_config.py` et modifiez les valeurs suivantes : 
-- `SENDER_EMAIL`: Adresse e-mail de l'expéditeur. 
-- `RECEIVER_EMAIL`: Adresse e-mail du destinataire. 
-- `PASSWORD`: Mot de passe de l'expéditeur pour le serveur SMTP. 
-- `SMTP_SERVER`: Adresse du serveur SMTP. 
-- `SMTP_PORT`: Port du serveur SMTP.
-## Utilisation
-1. Assurez-vous d'avoir installé Python sur votre système. 
-2. Installez les dépendances en exécutant `pip install -r requirements.txt`. 
-3. Placez votre fichier Excel contenant les URLs à archiver dans le même répertoire que `main.py`.
-4. Exécutez le script en utilisant la commande suivante dans votre terminal :
+To configure sending emails, you must complete these fields :
 
-```bash
-python main.py nom_du_fichier.xlsx
+```python
+
+# Sender's email address
+SENDER_EMAIL = "your_email@gmail.com"
+
+# Recipient's email address
+RECEIVER_EMAIL = "recipient_email@gmail.com"
+
+# Sender's password for the SMTP server
+PASSWORD = "your_password"
+
+# SMTP server address
+SMTP_SERVER = "smtp.example.com"
+
+# SMTP server port
+SMTP_PORT = 587
 ```
 
 
 
-Assurez-vous de remplacer `nom_du_fichier.xlsx` par le nom de votre fichier Excel contenant les URLs.
+Make sure to replace `"your_email@gmail.com"`, `"recipient_email@gmail.com"`, `"your_password"`, and `"smtp.example.com"` with your actual email credentials and SMTP server address.
+## Usage
+1. Ensure you have Python installed on your system. 
+2. Install dependencies by running `pip install -r requirements.txt`. 
+3. Place your Excel file containing the URLs to be archived in the same directory as `main.py`. 
+4. Configure the `email_config.py` file as described above.
+5. Execute the script using the following command in your terminal:
+
+```bash
+python main.py filename.xlsx
+```
+
+
+
+Make sure to replace `filename.xlsx` with the name of your Excel file containing the URLs.
 ## Logs
 
-Toutes les opérations effectuées par le script seront enregistrées dans le fichier `crawl.log`, y compris les erreurs rencontrées lors de l'exécution.-
+All operations performed by the script will be recorded in the `crawl.log` file, including any errors encountered during execution.
